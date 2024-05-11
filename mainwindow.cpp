@@ -187,6 +187,7 @@ void MainWindow::on_actionLimpiar_triggered()
     color= QColor(Qt::black);
     tamaño = DEFAULT_SIZE;
     update();
+    guardado=true;
 }
 /////////////////////////////////////////////////////////////////////////////
 //funcion cambiar grosor
