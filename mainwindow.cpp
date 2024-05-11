@@ -13,7 +13,7 @@
 #include <QCloseEvent>
 #include <QPushButton>
 
-#define DEFAULT_SIZE 2
+#define DEFAULT_SIZE 5
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -61,7 +61,6 @@ void MainWindow::mousePressEvent(QMouseEvent *e)
         break;
     case 4:
         inicio = e->pos();
-        //pito
         break;
     }
     pintando = true;
@@ -338,8 +337,8 @@ void MainWindow::dibujarCirculo(const QPoint &centro, int radio, const QColor &c
 void MainWindow::dibujarElipse(const QPoint &inicio, int width, int height, const QColor &color, int tamaño)
 {
     // Calcular la posición del rectángulo que contiene la elipse
-    int x = inicio.x() - width / 2;
-    int y = inicio.y() - height / 2;
+    int x = inicio.x() < final.x() ? inicio.x() : final.x();
+    int y = inicio.y() < final.y() ? inicio.y() : final.y();
 
     // Dibujar la elipse
     QPen pen(color);
