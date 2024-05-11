@@ -52,10 +52,14 @@ void MainWindow::mousePressEvent(QMouseEvent *e)
         break;
     case 1:
         inicio = e->pos();
-        final = e->pos(); // Asigna la misma posición inicial y final
-        update(); // Dibuja la línea inicialmente
         break;
     case 2:
+        inicio = e->pos();
+        break;
+    case 3:
+        inicio = e->pos();
+        break;
+    case 4:
         inicio = e->pos();
         break;
     }
@@ -79,33 +83,54 @@ void MainWindow::mouseMoveEvent(QMouseEvent *e)
         break;
 
     case 1:
-        // Actualiza la posición final mientras se mueve el mouse
         final = e->pos();
-        update(); // Vuelve a dibujar la ventana
+        update();
         break;
 
     case 2:
         final = e->pos();
         update();
         break;
+
+    case 3:
+        final = e->pos();
+        update();
+        break;
+
+    case 4:
+        final = e->pos();
+        update();
+        break;
+
     }
 }
 void MainWindow::mouseReleaseEvent(QMouseEvent *e)
 {
     switch (figura) {
-    case 0:
+    case 0://Libre
         final = e->pos();
         break;
-    case 1:
-        // Dibuja la línea al soltar el botón del mouse
+    case 1://Linea
         final = e->pos();
         dibujarLinea(inicio, final, color, tamaño);
         break;
-    case 2:
+    case 2://Cuadrado
         final = e->pos();
         dibujarCuadrado(inicio, final, color, tamaño);
         break;
+    case 3: // Círculo
+        final = e->pos();
+        radio = qRound(QLineF(inicio, final).length());
+        dibujarCirculo(inicio, radio, color, tamaño);
+        break;
+    case 4: // Elipse
+        final = e->pos();
+        width = qAbs(final.x() - inicio.x());
+        height = qAbs(final.y() - inicio.y());
+        dibujarElipse(inicio, width, height, color, tamaño);
+        break;
     }
+
     pintando = false;
     e->accept();
 }
@@ -187,7 +212,6 @@ void MainWindow::on_actionLimpiar_triggered()
     color= QColor(Qt::black);
     tamaño = DEFAULT_SIZE;
     update();
-    guardado=true;
 }
 /////////////////////////////////////////////////////////////////////////////
 //funcion cambiar grosor
@@ -209,6 +233,7 @@ void MainWindow::on_actionBorrador_triggered()
 {
     color= QColor(Qt::white);
     MainWindow::on_actionGrosor_triggered();
+    figura = 0;
 }
 //////////////////////////////////////////////////////////////////////////////
 //funcion de advertencia de guardado
@@ -249,17 +274,21 @@ void MainWindow::on_actionLibre_triggered()
 {
     figura = 0;
 }
-
-
 void MainWindow::on_actionLinea_triggered()
 {
     figura = 1;
 }
-
-
 void MainWindow::on_actionCuadrado_triggered()
 {
     figura = 2;
+}
+void MainWindow::on_actionCirculo_triggered()
+{
+    figura = 3;
+}
+void MainWindow::on_actionElipse_triggered()
+{
+    figura = 4;
 }
 
 ////////////////////////////////////////////////////////////////////////////
@@ -291,5 +320,34 @@ void MainWindow::dibujarCuadrado(const QPoint &start, const QPoint &end, const Q
     painter->drawRect(x, y, width, height);
     update();
 }
+///////////////////////////////////////////////////////////////////////////////
+//figura prediseñada circulo
+void MainWindow::dibujarCirculo(const QPoint &centro, int radio, const QColor &color, int tamaño)
+{
+    // Dibujar el círculo
+    QPen pen(color);
+    pen.setCapStyle(Qt::RoundCap);
+    pen.setWidth(tamaño);
+    painter->setPen(pen);
+    painter->drawEllipse(centro, radio, radio);
+    update();
+}
+///////////////////////////////////////////////////////////////////////////////
+//figura prediseñada elipse
+void MainWindow::dibujarElipse(const QPoint &inicio, int width, int height, const QColor &color, int tamaño)
+{
+    // Calcular la posición del rectángulo que contiene la elipse
+    int x = inicio.x() - width / 2;
+    int y = inicio.y() - height / 2;
+
+    // Dibujar la elipse
+    QPen pen(color);
+    pen.setCapStyle(Qt::RoundCap);
+    pen.setWidth(tamaño);
+    painter->setPen(pen);
+    painter->drawEllipse(x, y, width, height);
+    update();
+}
+
 
 

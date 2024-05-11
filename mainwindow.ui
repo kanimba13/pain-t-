@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>708</width>
-    <height>533</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>708</width>
-     <height>21</height>
+     <width>800</width>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchivo">
@@ -46,6 +46,8 @@
     <addaction name="actionLibre"/>
     <addaction name="actionLinea"/>
     <addaction name="actionCuadrado"/>
+    <addaction name="actionCirculo"/>
+    <addaction name="actionElipse"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuEditar"/>
@@ -95,6 +97,16 @@
   <action name="actionBorrador">
    <property name="text">
     <string>Borrador</string>
+   </property>
+  </action>
+  <action name="actionCirculo">
+   <property name="text">
+    <string>Circulo</string>
+   </property>
+  </action>
+  <action name="actionElipse">
+   <property name="text">
+    <string>Elipse</string>
    </property>
   </action>
  </widget>
