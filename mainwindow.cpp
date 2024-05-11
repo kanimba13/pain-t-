@@ -61,6 +61,7 @@ void MainWindow::mousePressEvent(QMouseEvent *e)
         break;
     case 4:
         inicio = e->pos();
+        //pito
         break;
     }
     pintando = true;
