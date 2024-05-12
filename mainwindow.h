@@ -51,6 +51,7 @@ private:
     QImage *imagen;
     QPainter *painter;
     QPoint inicio;
+    QPoint cursorPos;
     bool primerClick = true;
     QPoint final;
     bool pintando;
@@ -58,6 +59,7 @@ private:
     QColor color;
     int tamaño;
     bool guardado;
+    bool usborrador;
     //variables de las figuras
     int figura = 0;
     int radio;//circulo

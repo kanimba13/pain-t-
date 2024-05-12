@@ -13,7 +13,9 @@
 #include <QCloseEvent>
 #include <QPushButton>
 
-#define DEFAULT_SIZE 5
+#define DEFAULT_SIZE 2
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -30,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     guardado = true;
 }
 
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -37,13 +40,33 @@ MainWindow::~MainWindow()
     delete imagen;
 }
 
+
 void MainWindow::paintEvent(QPaintEvent *e)
 {
     QPainter painter(this);
     painter.fillRect(imagen->rect(), Qt::white);
     painter.drawImage(0, 0, *imagen);
+
+    if (usborrador) {
+        // Si está seleccionada la herramienta de borrador
+
+        int radio = tamaño / 2; // Radio es la mitad del tamaño
+
+        // Calcular la posición del rectángulo que contiene el círculo
+
+        int x = cursorPos.x() - radio;
+        int y = cursorPos.y() - radio;
+
+        // Dibujar el contorno del círculo con color negro
+
+        painter.setPen(QPen(Qt::black, 1)); // Ancho del borde 1
+        painter.setBrush(Qt::NoBrush); // Sin relleno
+        painter.drawEllipse(x, y, tamaño, tamaño);
+    }
     e->accept();
 }
+
+
 void MainWindow::mousePressEvent(QMouseEvent *e)
 {
     switch (figura) {
@@ -69,11 +92,13 @@ void MainWindow::mousePressEvent(QMouseEvent *e)
 }
 void MainWindow::mouseMoveEvent(QMouseEvent *e)
 {
+    cursorPos = e->pos();
     QPen pen(color);
     pen.setCapStyle(Qt::RoundCap);
     pen.setWidth(tamaño);
     switch (figura) {
     case 0:
+        cursorPos = e->pos();
         final = e->pos();
         painter->setPen(pen);
         painter->drawLine(inicio, final);
@@ -103,7 +128,11 @@ void MainWindow::mouseMoveEvent(QMouseEvent *e)
         break;
 
     }
+    update();
+    e->accept();
 }
+
+
 void MainWindow::mouseReleaseEvent(QMouseEvent *e)
 {
     switch (figura) {
@@ -202,7 +231,7 @@ void MainWindow::on_actionAbrir_triggered()
     update();
 }
 /////////////////////////////////////////////////////////////////////////////
-//funcion limpiar
+
 void MainWindow::on_actionLimpiar_triggered()
 {
     imagen = new QImage(QApplication::primaryScreen()->geometry().size(),
@@ -212,12 +241,13 @@ void MainWindow::on_actionLimpiar_triggered()
     color= QColor(Qt::black);
     tamaño = DEFAULT_SIZE;
     update();
+    guardado=true;
 }
 /////////////////////////////////////////////////////////////////////////////
 //funcion cambiar grosor
 void MainWindow::on_actionGrosor_triggered()
 {
-    tamaño = QInputDialog::getInt(this, "Tamaño ", "Ingrese el tamaño: ", 2, 1);
+    tamaño = QInputDialog::getInt(this, "Tamaño ", "Ingrese el tamaño: ", 23, 1);
     guardado = false;
 }
 /////////////////////////////////////////////////////////////////////////////
@@ -234,6 +264,8 @@ void MainWindow::on_actionBorrador_triggered()
     color= QColor(Qt::white);
     MainWindow::on_actionGrosor_triggered();
     figura = 0;
+    usborrador= true;
+
 }
 //////////////////////////////////////////////////////////////////////////////
 //funcion de advertencia de guardado
@@ -273,10 +305,14 @@ void MainWindow::closeEvent(QCloseEvent *e)
 void MainWindow::on_actionLibre_triggered()
 {
     figura = 0;
+    tamaño = DEFAULT_SIZE;
+    usborrador= false;
+    color = QColorDialog::getColor(Qt::black, this, "Color del lapiz");
 }
 void MainWindow::on_actionLinea_triggered()
 {
     figura = 1;
+
 }
 void MainWindow::on_actionCuadrado_triggered()
 {

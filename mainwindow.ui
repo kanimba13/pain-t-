@@ -6,9 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>604</width>
+    <height>549</height>
    </rect>
+  </property>
+  <property name="cursor">
+   <cursorShape>CrossCursor</cursorShape>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -19,9 +22,15 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>25</height>
+     <width>604</width>
+     <height>21</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
    </property>
    <widget class="QMenu" name="menuArchivo">
     <property name="title">
@@ -53,7 +62,6 @@
    <addaction name="menuEditar"/>
    <addaction name="menuGrafico"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionGuardar">
    <property name="text">
     <string>Guardar</string>
@@ -81,7 +89,7 @@
   </action>
   <action name="actionLibre">
    <property name="text">
-    <string>Libre</string>
+    <string>Lapiz</string>
    </property>
   </action>
   <action name="actionCuadrado">
