@@ -231,7 +231,7 @@ void MainWindow::on_actionAbrir_triggered()
     update();
 }
 /////////////////////////////////////////////////////////////////////////////
-
+//funicon para limpiar la pantalla
 void MainWindow::on_actionLimpiar_triggered()
 {
     imagen = new QImage(QApplication::primaryScreen()->geometry().size(),
@@ -261,6 +261,7 @@ void MainWindow::on_actionColor_triggered()
 //funcion borrador
 void MainWindow::on_actionBorrador_triggered()
 {
+    colorOriginal = color;
     color= QColor(Qt::white);
     MainWindow::on_actionGrosor_triggered();
     figura = 0;
@@ -312,19 +313,35 @@ void MainWindow::on_actionLibre_triggered()
 void MainWindow::on_actionLinea_triggered()
 {
     figura = 1;
+    if (usborrador) {
+        color = colorOriginal; // Restaurar el color original
+    }
+    usborrador = false;
 
 }
 void MainWindow::on_actionCuadrado_triggered()
 {
     figura = 2;
+    if (usborrador) {
+        color = colorOriginal; // Restaurar el color original
+    }
+    usborrador = false;
 }
 void MainWindow::on_actionCirculo_triggered()
 {
     figura = 3;
+    if (usborrador) {
+        color = colorOriginal; // Restaurar el color original
+    }
+    usborrador = false;
 }
 void MainWindow::on_actionElipse_triggered()
 {
     figura = 4;
+    if (usborrador) {
+        color = colorOriginal; // Restaurar el color original
+    }
+    usborrador = false;
 }
 
 ////////////////////////////////////////////////////////////////////////////

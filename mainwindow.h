@@ -65,6 +65,7 @@ private:
     int radio;//circulo
     int height;//elipse
     int width;//elipse
+    QColor colorOriginal;
 
 };
 #endif // MAINWINDOW_H
