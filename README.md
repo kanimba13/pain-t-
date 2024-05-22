@@ -17,10 +17,14 @@ Para dibuja haga uso del mouse dando click en la ventana en blanco y arrastrelo 
 ![Dibujar](https://github.com/kanimba13/pain-t-/assets/159093438/0d21e1dd-a6fa-4a12-9734-0bac95596dc1)
 
 # Editar
-<img width="611" alt="image" src="https://github.com/kanimba13/pain-t-/assets/159093438/81a48d75-a891-4a7c-967f-57cbbd2bb533">
+
+<img width="345" alt="Screenshot 2024-05-22 at 10 55 53 AM" src="https://github.com/kanimba13/pain-t-/assets/159093438/fa13ea85-ef99-4750-9498-46743886d3c5">
 
 ## Limpiar pantalla
 Regresa el lienzo a su estado original
+![Limpiar](https://github.com/kanimba13/pain-t-/assets/159093438/2f74e39e-2d9d-462a-8e70-0ed6e0e1eebc)
+
+
 ## Cambiar Tamaño del lapiz y del borrador
 Emerge una ventana de dialogo donde el usuario ingresa en formato numerico el grosor del lapiz/borrador
 ## Cambiar color del lapiz()
