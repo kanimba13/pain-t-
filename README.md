@@ -14,7 +14,7 @@ Proyecto_Kanimba_Editor de dibujo
 # Dibujar
 Para dibuja haga uso del mouse dando click en la ventana en blanco y arrastrelo para realizar los trazos
 
-![Dibujar](https://github.com/kanimba13/pain-t-/assets/159093438/0d21e1dd-a6fa-4a12-9734-0bac95596dc1)
+![Dibujar P](https://github.com/kanimba13/pain-t-/assets/159093438/8b9b3b3b-762d-442c-8cbc-df395e0663ce)
 
 # Editar
 
@@ -22,6 +22,7 @@ Para dibuja haga uso del mouse dando click en la ventana en blanco y arrastrelo 
 
 ## Limpiar pantalla
 Regresa el lienzo a su estado original
+
 ![Limpiar](https://github.com/kanimba13/pain-t-/assets/159093438/2f74e39e-2d9d-462a-8e70-0ed6e0e1eebc)
 
 
