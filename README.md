@@ -13,8 +13,9 @@ Proyecto_Kanimba_Editor de dibujo
 
 # Dibujar
 Para dibuja haga uso del mouse dando click en la ventana en blanco y arrastrelo para realizar los trazos
+![Dibujar](https://github.com/kanimba13/pain-t-/assets/159093438/0d21e1dd-a6fa-4a12-9734-0bac95596dc1)
 # Editar
-//imagen.png
+<img width="611" alt="image" src="https://github.com/kanimba13/pain-t-/assets/159093438/81a48d75-a891-4a7c-967f-57cbbd2bb533">
 ## Limpiar pantalla
 Regresa el lienzo a su estado original
 ## Cambiar Tamaño del lapiz y del borrador
