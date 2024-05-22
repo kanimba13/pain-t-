@@ -12,7 +12,7 @@ Proyecto_Kanimba_Editor de dibujo
 
 
 # Dibujar
-Para dibuja haga uso del mouse dando click en la ventana en blanco y arrastrelo para realizar los trazos
+Para dibujar haga uso del mouse dando click en la ventana en blanco y arrastrelo para realizar los trazos
 
 ![Dibujar P](https://github.com/kanimba13/pain-t-/assets/159093438/8b9b3b3b-762d-442c-8cbc-df395e0663ce)
 
@@ -28,16 +28,27 @@ Regresa el lienzo a su estado original
 
 ## Cambiar Tamaño del lapiz y del borrador
 Emerge una ventana de dialogo donde el usuario ingresa en formato numerico el grosor del lapiz/borrador
-## Cambiar color del lapiz()
-Se despliega una paleta de colores en el cual puede seleccionar un color para los trazos 
-//imagen2.png
+## Cambiar color del lapiz
+Se despliega una ventana con paleta de colores en el cual puede seleccionar un color para los trazos 
 ## Borrar
 Una vez seleccionada de click y arrastre el cursor por la zona que desea borrar
-## Figuras prediseñadas
+
+![Borrador](https://github.com/kanimba13/pain-t-/assets/159093438/908f2516-4989-4800-a37f-1834d51c0b87)
+
+
+## Graficos (Figuras prediseñadas)
+
+<img width="609" alt="Screenshot 2024-05-22 at 2 49 33 PM" src="https://github.com/kanimba13/pain-t-/assets/159093438/7c67e963-2c18-445e-a51e-f737591f1998">
+
+
 ### Dibujar Linea
 Dibuja una linea recta desde el punto en el que se da click hasta el punto que se suelta
 ### Dibujar Cuadrado
-Dibuja un cuadrado desde una de las esquinas donde se da click hasta la esquina opuesta donde se suelta el mouse
+Dibuja un cuadrado desde el verice donde se da click hasta el vertice opuesto donde se suelta el mouse.
+### Dibujar Circulo
+Dibuja una circunferencia desde el cenytro al dar click y arrastrar el mouse hasta donde se suelta.
+### Dibujar Elipse
+Dibuja una elipse desde el verice donde se da click hasta el vertice opuesto donde se suelta el mouse
 # Guardar imagen
 Guarda la imagen dibujada o editada en varios formatos (jpg, png, bmp, gif).
 # Abrir imagen
