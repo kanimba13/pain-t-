@@ -13,6 +13,7 @@ Proyecto_Kanimba_Editor de dibujo
 
 # Dibujar
 Para dibuja haga uso del mouse dando click en la ventana en blanco y arrastrelo para realizar los trazos
+
 ![Dibujar](https://github.com/kanimba13/pain-t-/assets/159093438/0d21e1dd-a6fa-4a12-9734-0bac95596dc1)
 
 # Editar
